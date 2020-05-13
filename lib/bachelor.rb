@@ -61,6 +61,7 @@ def get_contestant_name(data, occupation)
   # code here
   data.each do |seasons, bachelors_stat|
     bachelors_stat.each do |catigories_of_bachelors|
+      # binding.pry
       jobs =  catigories_of_bachelors.assoc("occupation")
       if jobs[1] == occupation
         return catigories_of_bachelors.assoc("name")[1]
@@ -114,13 +115,6 @@ def get_average_age_for_season(data, season)
         age_total << inner_key.assoc("age")[1].to_i
       end
 
-        # inner_key.each do |attribute, value|
-        #   binding.pry
-        #   if attribute == :age
-        #     age_total.push(inner_key[:age].to_i)
-        #   end
-        # end
-      
     end
   end
   age_tot = age_total.sum(0.0) / age_total.size
